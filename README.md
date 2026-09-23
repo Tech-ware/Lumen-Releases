@@ -1,11 +1,12 @@
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/d4e7cc71-26c9-4679-af67-de7297dcc2d7" alt="Lumen Logo" width="512">
+  <img width="1920" height="1080" alt="1_5_Update" src="https://github.com/user-attachments/assets/a6a51340-56a6-4e74-adc2-a16bf8be518f" />
+
 
 
   # Lumen by HX
-  **The local, ML-powered search engine your PC deserves.**
+  **The local, search engine your PC deserves.**
 
-  [![Version](https://img.shields.io/badge/Version-1.3.0-00E5FF.svg?style=flat-square)](#installation)
+  [![Version](https://img.shields.io/badge/Version-1.5.0-00E5FF.svg?style=flat-square)](#installation)
   [![Platform](https://img.shields.io/badge/Platform-Windows%2010%20%7C%2011-blue.svg?style=flat-square)](#installation)
   [![Website](https://img.shields.io/badge/Website-tools.archx.ma-white.svg?style=flat-square)](https://tools.archx.ma/lumen)
 </div>
@@ -14,24 +15,20 @@
 
 Windows Search is fundamentally broken. It relies on high-level APIs, prioritizes web results, and struggles to index heavy directories. 
 
-**Lumen** is a native C# WinUI 3 replacement engineered for speed and context. It bypasses the operating system to read the raw NTFS Master File Table (MFT) directly, and utilizes local Machine Learning models (ONNX Runtime) to search your images and documents by semantic meaning. 
-
-Zero cloud telemetry. Zero lag. 100% on-device inference.
+**Lumen** is a native C# WinUI 3 engineered for speed and context. It bypasses the operating system to read the raw NTFS Master File Table (MFT) directly and uses FTS5 to index data inside documents.
 
 ## Architecture & Features
 
 * **Raw MFT Parsing:** Bypasses Win32 APIs to read raw disk sectors. Indexes 2,000,000+ files in under 5 seconds for 0ms keyword search latency.
-* **Multimodal Local AI:** Runs quantized `all-MiniLM` and `CLIP` neural networks entirely on your CPU. Type `? a modern sports car` and Lumen mathematically connects your thought to the visual pixels inside your local `.jpg` and `.png` files.
 * **In-Document Deep Search:** Utilizes a SQLite `FTS5` Virtual Table to build an inverted index of your PDFs, Word documents, and text files. Find the exact document a sentence is written in instantly.
 * **Dual-Process IPC Design:** Overcomes Windows UIPI security restrictions. An invisible Admin service handles the heavy I/O and neural networks, communicating via Asynchronous Named Pipes to a lightweight, standard-user UI. This allows for flawless **zero-friction drag-and-drop** directly to your desktop.
 * **Memory Optimized:** Employs Windows Working Set Trimming. Idles invisibly in the background at ~18MB of RAM, reserving memory allocation strictly for active Neural Network inference.
 
 ## Installation
 <div align="center">
-<img width="768" alt="1_3_Update" src="https://github.com/user-attachments/assets/4548ce3d-557d-44a6-ac0d-86a3ecc90896" />
 
 
-**[Download Lumen v1.3.0 Setup.exe](https://github.com/Tech-ware/Lumen-Releases/releases/download/1.3.0/Lumen_v1.3.0_Setup.exe)**
+**[Download Lumen v1.5.0 Setup.exe](https://github.com/Tech-ware/Lumen-Releases/releases/download/1.5.0/Lumen_v1.5.0_Setup.exe)**
 
 </div>
 
@@ -46,21 +43,16 @@ Because Lumen is built by an independent developer, this `.exe` does not current
 
 Once installed, Lumen boots silently into your Windows System Tray. 
 
-*   **Summon Lumen:** Press `Alt + Space` (Customizable in Settings).
+*   **Summon Lumen:** Press `Alt + Space` (Customizable in Preferences).
 *   **Keyword Search:** Just start typing. Lumen will instantly search file names across all mounted volumes.
-*   **Semantic AI Search:** Prefix your search with a question mark (`?`). 
-    *   *Example:* `? architectural blueprints`
-    *   Lumen will analyze the semantic meaning of your query against your local index and return relevant Images and Documents, sorted by AI Confidence scoring.
 *   **Smart Filters:** Click the UI chips below the search bar to instantly filter millions of results down to `Images`, `Documents`, `Videos`, etc.
 *   **Context Menus:** Right-click any result to invoke the native Windows Properties dialog, copy the file, or open its directory.
 
 ## Privacy Policy
 
-Lumen is an offline-first application. It does not contain telemetry tracking, crash reporting analytics (unless explicitly opted-in via Sentry), or external API keys. Vector embeddings and FTS5 data are stored locally in an encrypted format at `%LocalAppData%\LumenByHX\LumenBrain.db`.
+Lumen is an offline-first application. It does not contain telemetry tracking, crash reporting analytics, or external API keys.
 
 ## Links & Roadmap
 
 *   **Official Website:**[tools.archx.ma/lumen](https://tools.archx.ma/lumen)
 *   **Creator:** [@hx](https://x.com/hxthedev)
-
-*Lumen Next (Pro Features including Local OCR, Semantic Video Search, and Network Drive indexing) are currently in development.*
