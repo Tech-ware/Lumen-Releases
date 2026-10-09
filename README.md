@@ -21,8 +21,8 @@ Windows Search is fundamentally broken. It relies on high-level APIs, prioritize
 
 * **Raw MFT Parsing:** Bypasses Win32 APIs to read raw disk sectors. Indexes 2,000,000+ files in under 5 seconds for 0ms keyword search latency.
 * **In-Document Deep Search:** Utilizes a SQLite `FTS5` Virtual Table to build an inverted index of your PDFs, Word documents, and text files. Find the exact document a sentence is written in instantly.
-* **Dual-Process IPC Design:** Overcomes Windows UIPI security restrictions. An invisible Admin service handles the heavy I/O and neural networks, communicating via Asynchronous Named Pipes to a lightweight, standard-user UI. This allows for flawless **zero-friction drag-and-drop** directly to your desktop.
-* **Memory Optimized:** Employs Windows Working Set Trimming. Idles invisibly in the background at ~18MB of RAM, reserving memory allocation strictly for active Neural Network inference.
+* **Dual-Process IPC Design:** Overcomes Windows UIPI security restrictions. An invisible Admin service handles the heavy I/O, communicating via Asynchronous Named Pipes to a lightweight, standard-user UI. This allows for flawless **zero-friction drag-and-drop** directly to your desktop.
+* **Memory Optimized:** Employs Windows Working Set Trimming. Idles invisibly in the background.
 
 ## Installation
 <div align="center">
