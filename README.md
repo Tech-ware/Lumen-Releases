@@ -4,7 +4,7 @@
 
 
   # Lumen by HX
-  **The local, search engine your PC deserves.**
+  **The local search engine your PC deserves.**
 
   [![Version](https://img.shields.io/badge/Version-1.5.0-00E5FF.svg?style=flat-square)](#installation)
   [![Platform](https://img.shields.io/badge/Platform-Windows%2010%20%7C%2011-blue.svg?style=flat-square)](#installation)
@@ -15,11 +15,11 @@
 
 Windows Search is fundamentally broken. It relies on high-level APIs, prioritizes web results, and struggles to index heavy directories. 
 
-**Lumen** is a native C# WinUI 3 engineered for speed and context. It bypasses the operating system to read the raw NTFS Master File Table (MFT) directly and uses FTS5 to index data inside documents.
+**Lumen** is a native C# WinUI 3 engineered for speed and context. It reads the raw NTFS Master File Table (MFT) directly and uses FTS5 to index data inside documents.
 
 ## Architecture & Features
 
-* **Raw MFT Parsing:** Bypasses Win32 APIs to read raw disk sectors. Indexes 2,000,000+ files in under 5 seconds for 0ms keyword search latency.
+* **Raw MFT Parsing:** Bypasses Win32 APIs to read raw disk sectors. Indexes millions of files in seconds for sub millisecond keyword search speed.
 * **In-Document Deep Search:** Utilizes a SQLite `FTS5` Virtual Table to build an inverted index of your PDFs, Word documents, and text files. Find the exact document a sentence is written in instantly.
 * **Dual-Process IPC Design:** Overcomes Windows UIPI security restrictions. An invisible Admin service handles the heavy I/O, communicating via Asynchronous Named Pipes to a lightweight, standard-user UI. This allows for flawless **zero-friction drag-and-drop** directly to your desktop.
 * **Memory Optimized:** Employs Windows Working Set Trimming. Idles invisibly in the background.
@@ -37,7 +37,7 @@ To achieve sub-second indexing, Lumen **requires Administrator privileges** to r
 
 Because Lumen is built by an independent developer, this `.exe` does not currently possess a $200 EV Code Signing Certificate. When you launch the installer, Windows SmartScreen will flag it as an *"Unknown Publisher"*. 
 *   **To proceed:** Click **More Info** -> **Run Anyway**.
-*   **Verification:** You are encouraged to run the binary through VirusTotal or monitor it with a network packet sniffer (Wireshark/GlassWire). Lumen makes **0 outbound network requests**. Your data never leaves your silicon.
+*   **Verification:** You are encouraged to run the binary through VirusTotal or monitor it with a network packet sniffer (Wireshark/GlassWire). Lumen makes **0 outbound network requests**. It's offline, no network requests are made.
 
 ## Usage Guide
 
